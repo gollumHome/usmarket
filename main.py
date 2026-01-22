@@ -136,7 +136,7 @@ def run():
         top_10_breakouts = breakout_list[:10]
 
         print(f"🤖 正在分析前 {len(top_10_breakouts)} 只标的...")
-        stock_reviews = analyst.generate_stock_reviews(top_10_breakouts)
+        stock_reviews = ai_analyst.generate_stock_reviews(top_10_breakouts)
         # 发送第二份报告
         notifier.send_markdown("🔭 PART 2: 机会雷达", stock_reviews)
     else:
