@@ -47,6 +47,7 @@ def run():
         return
     print("⏳ 系统启动，正在扫描市场数据...")
     notifier = WechatNotifier(WECHAT_WEBHOOK)
+    ai_analyst = GeminiAnalyst()
     # === 1. 宏观分析 (Macro) ===
     # 获取价格数据
     macro_prices = logic.fetch_price_data([BENCHMARK, RISK_INDICATOR])
@@ -70,7 +71,7 @@ def run():
     # === 3. AI 生成早报 (调用你指定的 generate_market_brief) ===
     print(f"{Fore.CYAN}🤖 正在生成市场早报...")
     # 这里直接传入 macro_data 字典，里面的 key 完美匹配 prompt
-    market_report = analyst.generate_market_brief(macro_data, top_sectors, bottom_sectors)
+    market_report = ai_analyst.generate_market_brief(macro_data, top_sectors, bottom_sectors)
     # 发送第一份报告
     notifier.send_markdown("🌍 PART 1: 市场早报", market_report)
     # === 4. 个股扫描 (Stock Scan) ===
