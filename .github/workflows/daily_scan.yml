@@ -23,7 +23,7 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install pandas yfinance google-generativeai requests
-
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Execute Scan
         env:
           # 在 GitHub Repo -> Settings -> Secrets 中配置
