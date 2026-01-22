@@ -1,0 +1,5 @@
+pandas
+yfinance
+numpy
+colorama
+google-generativeai
