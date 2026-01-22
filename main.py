@@ -8,9 +8,18 @@ from notifier import WechatNotifier
 from strategies import Strategies
 import os
 
-# 设置代理，解决 yfinance 连不上的问题
-os.environ["http_proxy"] = "http://127.0.0.1:10809"
-os.environ["https_proxy"] = "http://127.0.0.1:10809"
+# 只有当不在 GitHub Actions 环境下运行时，才尝试设置代理
+if not os.getenv('GITHUB_ACTIONS'):
+    # 这里写你本地需要的代理设置，或者干脆留空
+    os.environ['HTTP_PROXY'] = 'http://127.0.0.1:10809'
+    os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:10809'
+    print("本地环境：保持代理设置（如果需要）")
+else:
+    # 确保在 GitHub 环境中清除所有代理环境变量
+    os.environ.pop('HTTP_PROXY', None)
+    os.environ.pop('HTTPS_PROXY', None)
+    os.environ.pop('all_proxy', None)
+    print("GitHub Actions 环境：已禁用所有代理设置")
 
 # 初始化
 init(autoreset=True)
