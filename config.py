@@ -5,8 +5,7 @@
 # 1. API 密钥配置
 # ==========================================
 # 前往 https://aistudio.google.com/app/apikey 免费获取
-GEMINI_API_KEY = "AIzaSyC1jLCVc4OcItVaLITjDb12BWRwz2VjlMU"
-WECHAT_WEBHOOK='https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=586286fe-7298-4335-8c9d-5227959445fa'
+
 
 # --- 1. 市场风向标 (用于宏观择时策略) ---
 # 逻辑：大盘代表整体水位，VIX代表市场恐慌程度
