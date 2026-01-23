@@ -46,7 +46,7 @@ def run():
         print("❌ 错误: 环境变量 GEMINI_API_KEY 或 WECHAT_WEBHOOK 未配置")
         return
     print("⏳ 系统启动，正在扫描市场数据...")
-    notifier = WechatNotifier(WECHAT_WEBHOOK)
+    notifier = WechatNotifier(WEBHOOK_URL)
     ai_analyst = GeminiAnalyst()
     # === 1. 宏观分析 (Macro) ===
     # 获取价格数据
