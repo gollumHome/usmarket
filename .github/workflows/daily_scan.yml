@@ -2,9 +2,9 @@ name: US Market AI Daily Scan
 
 on:
   schedule:
-    # 协调世界时 (UTC) 21:00 是北京时间次日 05:00
-    # 星期一到星期五运行 (对应美股交易日)
-    - cron: '0 21 * * 1-5'
+     # 每天北京时间早上 09:00 运行（处理前一个交易日完整美股数据）
+    # 对应 UTC 时间 01:00，运行范围是周二至周六
+    - cron: '0 1 * * 2-6'
   workflow_dispatch: # 支持手动触发
 
 jobs:
